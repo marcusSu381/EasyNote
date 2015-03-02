@@ -4,7 +4,7 @@ Works well on Chrome for andrnio,  safari for ios, some hand gestures may not wo
 This project is inspired by ios app 'Clear'
 https://itunes.apple.com/ca/app/clear-tasks-reminders-to-do/id493136154?mt=8
 
-here is an uncomplete one on internet:
+here is an uncompleted one on internet:
 http://jeffvlahos.com/clear/_demo/index.php
 
 
