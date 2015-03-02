@@ -1,0 +1,314 @@
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*This document needs cleanup.*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*Standard reset*/
+* { padding: 0; margin: 0; }
+
+body {
+	background-color: #e7dfd0;
+	-webkit-perspective: 2000;
+	-webkit-perspective-origin: 50% 0%;
+	/*-webkit-overflow-scrolling: touch;*/
+}
+.cube1{
+	margin-top:22px;
+	margin-left:16px;
+	background-color: #ed7c5b;
+	height:20px;
+	width:20px;
+	display:inline-block;
+	margin-right:5px;
+	border: 1px solid #e7dfd0;
+	 -webkit-box-sizing:border-box;
+}
+
+.cube2{
+	/*margin-top:42px;*/
+	background-color: #88bddb;
+	height:20px;
+	width:20px;
+	display:inline-block;
+	margin-right:5px;
+	border: 1px solid #e7dfd0;
+	 -webkit-box-sizing:border-box;
+}
+.cube3{
+	/*margin-top:42px;*/
+	background-color: #40837a;
+	height:20px;
+	width:20px;
+	display:inline-block;
+	border: 1px solid #e7dfd0;
+	 -webkit-box-sizing:border-box;
+}
+
+input:disabled {
+	opacity: 1!important;
+}
+h1{
+	text-align: center;
+	vertical-align: middle;
+line-height: 67px;
+font-family: 'Open Sans', sans-serif;
+color:white;
+}
+.top-bar{
+	padding-top: auto;
+	padding-bottom: auto;
+	background-color:#2f4f59;
+	height: 67px;
+	width: 100%;
+}
+
+.mod {
+	background-color: #e7dfd0;
+	width: 320px;
+	margin: 0 auto;
+}
+.sub-mod{
+	background-color: transparent;
+	width: 220px;
+	margin: 0 auto;
+}
+
+/*Item container*/
+.item-mod {
+	background-color: #e7dfd0;
+	/*background-image: url('_assets/clear.png');*/
+	background-repeat: no-repeat;
+	position: relative;
+	height: auto;
+	opacity: 1;
+	overflow-x: hidden;
+	width: 320px;
+	z-index: 2;
+	/*-webkit-overflow-scrolling: touch;*/
+	-webkit-transition: -webkit-transform 0.4s ease-in-out 0s, 
+						height 0.4s ease-in-out 0s,
+						opacity 0.2s ease-in-out 0s;
+}
+
+.item-mod:hover, .item:hover, input:hover {
+	cursor: pointer !important;
+}
+
+/*Make item container shrink and hide*/
+.item-mod.shrink {
+	-webkit-animation: shrink-item 0.4s ease-in-out 0s;
+	-webkit-animation-fill-mode: forwards;
+	opacity: 0;
+}
+/*Make item container shrink and hide after 0.2 second delay*/
+/*Occurs when item is cleared*/
+.item-mod.shrink-after {
+	-webkit-animation: shrink-item 0.2s ease-in-out 0.2s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+/*Shrink item animation*/
+@-webkit-keyframes shrink-item
+{
+0%   {height:65px;}
+100% {height:0px;}
+}
+
+/*Item contents*/
+.item {
+	background-color: hsl(14,80%,64%);
+	z-index:1;
+	border-bottom: 1px solid hsl(14,80%,50%);
+	padding: 20px;
+	width: 280;
+	height: 24px;
+	-webkit-transition: background-color 0.4s ease-in-out 0s,
+						
+						border-bottom 0.4s ease-in-out 0s;
+}
+.colorpicker{
+	left: 0px;
+    top: 0px;
+	height:64px;
+	width:100px;
+	z-index: -2;
+	
+	position:absolute;
+}
+.add{
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	font-weight: 300; 
+}
+/*Input inside the item*/
+.item input {
+	border: none; outline: none;
+	background-color: transparent;
+	color: white;
+	display:inline-block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	font-weight: 300; 
+}
+.delete {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	font-weight: 300; 
+}
+.sub-item input{
+	border: none; outline: none;
+	background-color: transparent;
+	color: black;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	font-weight: 300;
+	font-size:1em;
+	display:inline-block;
+	width:170px;
+}
+.sub-item-mod{
+	background-color: #e7dfd0;
+	background-repeat: no-repeat;
+	position: relative;
+	height: auto;
+	opacity: 1;
+	overflow-x: hidden;
+	width: 220px;
+	z-index: -1;
+	/*-webkit-overflow-scrolling: touch;*/
+	-webkit-transition: -webkit-transform 0.4s ease-in-out 0s, 
+						height 0.4s ease-in-out 0s,
+						opacity 0.2s ease-in-out 0s;
+}
+
+.sub-item {
+	background-color: transparent;
+	
+	border-bottom: 1px solid #222;
+	padding: 10px;
+	width: 200px;
+	height: 24px;
+	-webkit-transition: background-color 0.4s ease-in-out 0s,
+						height 0.4s ease-in-out 0s,
+						border-bottom 0.4s ease-in-out 0s,
+						padding 0.4s ease-in-out 0s;
+}
+.sub-item.add{
+	border-bottom: 1px solid #e7dfd0;
+}
+.item p{
+	font-size: 20px;
+	display:inline-block;
+	color:white;
+
+	position: relative;
+	
+}
+.sub-item p{
+	/*font-size: 20px;*/
+	display:inline-block;
+	color:black;
+
+	position: relative;
+}
+.item.bounce-once {
+	-webkit-animation: bounce-once 1s ease-in-out 0.2s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes bounce-once {
+	0%, 20%, 50%, 80%, 100% {-webkit-transform: translateX(0);}
+	40% {-webkit-transform: translateX(65px);}
+	60% {-webkit-transform: translateX(15px);}
+}
+
+.slide-back {
+	-webkit-transition: margin 0.2s ease-in-out 0s;
+}
+/*Special transition class added when item is cleared*/
+.item-mod.transition .item {
+	-webkit-transition: left 0.2s linear 0s;
+}
+
+/*When item is checked (mid-gesture)*/
+.item-mod.check .item {
+	background-color: #2e2e2e !important;
+	
+	border-bottom: 1px solid #222 !important;
+}
+
+.item-mod.check .item input {
+	text-decoration: line-through;
+}
+
+/*When item is done*/
+.item-mod.done .item {
+	background-color: #2e2e2e !important;
+	
+	border-bottom: 1px solid #222 !important;
+	-webkit-transition: background-color 0.4s linear 0s, border 0.4s linear 0s;
+}
+
+.item-mod.done .item input {
+	text-decoration: line-through;
+}
+
+/*Cloned item is the one that moves (and eventually gets removed)*/
+.item-mod.remove {
+	z-index: 3;
+	position: absolute;
+}
+
+/*Once item is cleared, forgetta bout the check/X icons*/
+.item-mod.gone {
+	background-image: none;
+}
+
+.item.slide-out {
+	-webkit-transition: margin 0.2s ease-in-out 0s !important;
+}
+
+
+/*Makes space when a item is moving around*/
+#spacer.make-space {
+	-webkit-animation: make-space 0.4s ease-in-out 0s;
+	-webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes make-space
+{
+0%   {height:0px;}
+100% {height:65px;}
+}
+
+/*When an item has focus, dim others*/
+.mod.focus .item-mod {
+	opacity: 0.15;
+	background-image: none;
+}
+.mod.focus .item-mod.focus { opacity: 1 }
+
+/*Hide the template for items*/
+#item-mod-template {
+	display: none;
+}
+#sub-mod-template {
+	display: none;
+}
+#new-item-top {
+	width: 320px;
+	margin: 0 auto;
+	height: 0px;
+	-webkit-transform-origin: 50% 100%;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transform: rotateX(90deg);
+	-webkit-transition: none;
+}
+
+#new-item-top .item {
+	background-color: hsl(14, 80%, 64%);
+}
+
+#new-item-top.animate-back {
+	-webkit-transition: -webkit-transform 0.1s ease-in-out 0s, height 0.1s ease-in-out 0s;
+}
