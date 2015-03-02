@@ -1,8 +1,5 @@
-
-
 $(document).ready(function(){
 
-	
 	window.scrollTo(0, 1);
 
 	//These store different elements of an item being manipulated
